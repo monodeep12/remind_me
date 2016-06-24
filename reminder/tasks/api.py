@@ -3,7 +3,7 @@ from .models import Reminders
 from tastypie.authorization import Authorization
 from tastypie.validation import Validation
 from pyisemail import is_email
-
+import re
 
 class ReminderValidation(Validation):
     """
@@ -21,7 +21,10 @@ class ReminderValidation(Validation):
             if not is_email(bundle.data.get('email'), check_dns=True):
                 errors['email'] = 'Invalid email id'
                 
-        
+        if not bundle.data.get('phone_number', '') == '':
+            if not validate_mobile(bundle.data.get('phone_number')):
+                errors['phone_number'] = 'Invalid phone number'
+                
         if bundle.data.get('date', '') == '':
             errors['date'] = 'Date cannot be empty'
             
@@ -45,3 +48,11 @@ class RemindersResource(ModelResource):
         validation = ReminderValidation()
         always_return_data = True
         
+
+
+def validate_mobile(value):
+    rule = re.compile(r'^\+?1?\d{9,15}$')
+    if rule.search(value):
+        return True
+    else:
+        return False
