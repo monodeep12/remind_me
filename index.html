@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RemindMe</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/darkula.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>body {
+    position: relative;
+}
+
+h1 {
+    margin-top: 5px;
+}
+
+h1, h2, h3, h4 {
+    color: #2b2b2b;
+}
+
+h2:after {
+    content: ' ';
+}
+
+h5 {
+    font-weight: bold;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    display: none;
+    position: absolute;
+    margin-left: 8px;
+}
+
+h1:hover a, h2:hover a, h3:hover a, h4:hover a, h5:hover a, h6:hover a {
+    color: #a5a5a5;
+    display: initial;
+}
+
+.nav.nav-tabs > li > a {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.tab-content {
+    padding-top: 8px;
+}
+
+.table {
+    margin-bottom: 8px;
+}
+
+pre {
+    border-radius: 0px;
+    border: none;
+}
+
+pre code {
+    margin: -9.5px;
+}
+
+.request {
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
+
+.response-text-sample {
+    padding: 0px !important;
+}
+
+.response-text-sample pre {
+    margin-bottom: 0px;
+}
+
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 250px;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #2b2b2b;
+    padding-top: 20px;
+}
+
+#sidebar-wrapper ul {
+    width: 250px;
+}
+
+#sidebar-wrapper ul li {
+    margin-right: 10px;
+}
+
+#sidebar-wrapper ul li a:hover {
+    background: inherit;
+    text-decoration: none;
+}
+
+#sidebar-wrapper ul li a {
+    display: block;
+    color: #ECF0F1;
+    padding: 6px 15px;
+}
+
+#sidebar-wrapper ul li ul {
+    padding-left: 25px;
+}
+
+#sidebar-wrapper ul li ul li a {
+    padding: 1px 0px;
+}
+
+#sidebar-wrapper ul li a:hover,
+#sidebar-wrapper ul li a:focus {
+    color: #e0c46c;
+    border-right: solid 1px #e0c46c;
+}
+
+#sidebar-wrapper ul li.active > a {
+    color: #e0c46c;
+    border-right: solid 3px #e0c46c;
+}
+
+#sidebar-wrapper ul li:not(.active) ul {
+    display: none;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px 15px 15px 250px;
+}
+</style>
+</head>
+<body data-spy="scroll" data-target=".scrollspy">
+<div id="sidebar-wrapper">
+    <div class="scrollspy">
+    <ul id="main-menu" data-spy="affix" class="nav">
+        <li>
+            <a href="#doc-general-notes">General notes</a>
+        </li>
+        
+        <li>
+            <a href="#doc-api-detail">API detail</a>
+        </li>
+        
+        <li>
+            <a href="#folder-save-reminder">Save Reminder</a>
+            <ul>
+                
+
+                
+                <li>
+                    <a href="#request-reminder">Reminder</a>
+                </li>
+                
+
+                
+            </ul>
+        </li>
+        
+    </ul>
+</div>
+
+</div>
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>RemindMe</h1>
+
+                <h2 id="doc-general-notes">
+                    General notes
+                    <a href="#doc-general-notes"><i class="glyphicon glyphicon-link"></i></a>
+                </h2>
+
+                
+
+                
+
+                <h2 id="doc-api-detail">
+                    API detail
+                    <a href="#doc-api-detail"><i class="glyphicon glyphicon-link"></i></a>
+                </h2>
+
+                
+                <div class="endpoints-group">
+                    <h3 id="folder-save-reminder">
+                        Save Reminder
+                        <a href="#folder-save-reminder"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    
+
+                        
+                        <div class="request">
+
+                            <h4 id="request-reminder">
+                                Reminder
+                                <a href="#request-reminder"><i class="glyphicon glyphicon-link"></i></a>
+                            </h4>
+
+                            <div><p><style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg .tg-yw4l{vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-yw4l">Name</th>
+    <th class="tg-yw4l">Type</th>
+    <th class="tg-yw4l">Format</th>
+    <th class="tg-yw4l">Description</th>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">email</td>
+    <td class="tg-yw4l">string</td>
+    <td class="tg-yw4l">email</td>
+    <td class="tg-yw4l">Email id of the user</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">phone<em>number</td>
+    <td class="tg-yw4l">string</td>
+    <td class="tg-yw4l">+919945055763</td>
+    <td class="tg-yw4l">Phone number of the user (max 15 characters)</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">date</td>
+    <td class="tg-yw4l">string</td>
+    <td class="tg-yw4l">DD/MM/YYYY</td>
+    <td class="tg-yw4l">Date of reminder</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">time</td>
+    <td class="tg-yw4l">string</td>
+    <td class="tg-yw4l">HH:MM:SS</td>
+    <td class="tg-yw4l">Time of reminder</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">message</td>
+    <td class="tg-yw4l">string</td>
+    <td class="tg-yw4l">string</td>
+    <td class="tg-yw4l">Message for the reminder (max 250 characters)</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">time</em>zone</td>
+    <td class="tg-yw4l">string</td>
+    <td class="tg-yw4l">time zone</td>
+    <td class="tg-yw4l">Defaults to Asia/Kolkata</td>
+  </tr>
+</table></p>
+</div>
+
+                            <div>
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#request-reminder-example-curl" data-toggle="tab">Curl</a></li>
+                                    <li role="presentation"><a href="#request-reminder-example-http" data-toggle="tab">HTTP</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="request-reminder-example-curl">
+                                        <pre><code class="hljs curl">curl -X POST -H "Content-Type: application/json" -d '{
+    "email": "mon@amagi.com",
+    "phone_number": "+9988088888",
+    "date":"24/06/2016",
+    "time":"23:00",
+    "message": "Remind me to buy milk"
+}' "http://127.0.0.1:8000/api/v1/reminder/"</code></pre>
+                                    </div>
+                                    <div class="tab-pane" id="request-reminder-example-http">
+                                        <pre><code class="hljs http">POST /api/v1/reminder/ HTTP/1.1
+Host: 127.0.0.1:8000
+Content-Type: application/json
+
+{
+    "email": "mon@amagi.com",
+    "phone_number": "+9988088888",
+    "date":"24/06/2016",
+    "time":"23:00",
+    "message": "Remind me to buy milk"
+}</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                            <div>
+                                <ul class="nav nav-tabs" role="tablist">
+                                    
+                                    <li role="presentation" class="active">
+                                        <a href="#request-reminder-responses-7c3f3df6-e483-550d-2079-ca8b755e7711" data-toggle="tab">
+                                            
+                                                Success
+                                            
+                                        </a>
+                                    </li>
+                                    
+                                    <li role="presentation">
+                                        <a href="#request-reminder-responses-39cf6d0d-5618-2374-1b8f-2879ba607fc4" data-toggle="tab">
+                                            
+                                                Bad Request
+                                            
+                                        </a>
+                                    </li>
+                                    
+                                </ul>
+                                <div class="tab-content">
+                                    
+                                    <div class="tab-pane active" id="request-reminder-responses-7c3f3df6-e483-550d-2079-ca8b755e7711">
+                                        <table class="table table-bordered">
+                                            <tr><th style="width: 20%;">Status</th><td>201 CREATED</td></tr>
+                                            
+                                            <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                            
+                                            <tr><th style="width: 20%;">Date</th><td>Fri, 24 Jun 2016 18:03:55 GMT</td></tr>
+                                            
+                                            <tr><th style="width: 20%;">Location</th><td>http://127.0.0.1:8000/api/v1/reminder/184a8f9e-ff01-4664-b221-eaf18caaf530/</td></tr>
+                                            
+                                            <tr><th style="width: 20%;">Server</th><td>WSGIServer/0.2 CPython/3.4.4</td></tr>
+                                            
+                                            <tr><th style="width: 20%;">Vary</th><td>Accept</td></tr>
+                                            
+                                            <tr><th style="width: 20%;">X-Frame-Options</th><td>SAMEORIGIN</td></tr>
+                                            
+                                            
+                                                
+                                                <tr><td class="response-text-sample" colspan="2">
+                                                    <pre><code>{
+    "created": "2016-06-24T23:33:55.453776",
+    "date": "2016-06-24",
+    "email": "mon@amagi.com",
+    "id": "184a8f9e-ff01-4664-b221-eaf18caaf530",
+    "message": "Remind me to buy milk",
+    "phone_number": "+9988088888",
+    "resource_uri": "/api/v1/reminder/184a8f9e-ff01-4664-b221-eaf18caaf530/",
+    "task_id": "",
+    "time": "23:00:00",
+    "time_zone": "Asia/Kolkata"
+}</code></pre>
+                                                </td></tr>
+                                                
+                                            
+                                        </table>
+                                    </div>
+                                    
+                                    <div class="tab-pane" id="request-reminder-responses-39cf6d0d-5618-2374-1b8f-2879ba607fc4">
+                                        <table class="table table-bordered">
+                                            <tr><th style="width: 20%;">Status</th><td>400 BAD REQUEST</td></tr>
+                                            
+                                            <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                            
+                                            <tr><th style="width: 20%;">Date</th><td>Fri, 24 Jun 2016 18:05:00 GMT</td></tr>
+                                            
+                                            <tr><th style="width: 20%;">Server</th><td>WSGIServer/0.2 CPython/3.4.4</td></tr>
+                                            
+                                            <tr><th style="width: 20%;">X-Frame-Options</th><td>SAMEORIGIN</td></tr>
+                                            
+                                            
+                                                
+                                                <tr><td class="response-text-sample" colspan="2">
+                                                    <pre><code>{
+    "reminder": {
+        "email": "Invalid email id"
+    }
+}</code></pre>
+                                                </td></tr>
+                                                
+                                            
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+
+                            <hr>
+                        </div>
+                        
+
+                    
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+</html>
