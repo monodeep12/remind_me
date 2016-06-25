@@ -14,3 +14,27 @@
 **API Documentation :**
 
 - https://monodeep12.github.io/remind_me/
+
+
+**Test Coverage :**
+
+- Run tests using: `coverage run manage.py test --settings=reminder.settings.test`
+- View coverage - `coverage report`
+
+
+**Current Coverage :**
+
+Name                            Stmts   Miss  Cover
+---------------------------------------------------
+manage.py                           6      0   100%
+reminder/__init__.py                0      0   100%
+reminder/settings/__init__.py       2      0   100%
+reminder/settings/celery.py         8      0   100%
+reminder/settings/common.py        26      0   100%
+reminder/settings/test.py           3      0   100%
+tasks/__init__.py                   0      0   100%
+tasks/models.py                    64      9    86%
+tasks/tasks.py                     16      2    88%
+tasks/tests.py                     35      3    91%
+---------------------------------------------------
+TOTAL                             160     14    91%
