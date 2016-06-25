@@ -27,6 +27,13 @@ DEBUG = False
 
 ALLOWED_HOSTS = []
 
+# Address of Redis instance - Celery broker
+BROKER_URL = 'redis://localhost:6379/0'
+BROKER_POOL_LIMIT = 8
+
+# Reminder time: how early text messages are sent in advance of reminder time
+REMINDER_TIME = 30 # seconds
+
 
 # Application definition
 DJANGO_APPS = (
@@ -107,3 +114,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR + '/staticfiles'
+
+CELERY_ALWAYS_EAGER = False
