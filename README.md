@@ -10,6 +10,7 @@
 - Add `export DJANGO_SETTINGS_MODULE=reminder.settings.local` to .bashrc
 - Add `export DJANGO_SECRET_KEY='YOUR-SECRET-KEY-HERE'`
 - Add `export DATABASE_URL=mysql://<USER>:<PASSWORD>@<HOST>:<PORT>/reminders`
+- Install Redis and start
 
 **API Documentation :**
 
