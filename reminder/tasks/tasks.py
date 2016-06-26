@@ -8,7 +8,6 @@ import datetime
 from .models import Reminders
 
 
-
 @shared_task
 def send_reminder(reminder_id):
     # Get our reminder from the database
@@ -28,4 +27,3 @@ def send_reminder(reminder_id):
     
     if not reminder.phone_number == "":
         print("SMS:", body)
-    

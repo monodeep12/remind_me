@@ -33,7 +33,7 @@
 
 cd ../../../
 
-IGNORE=E123,E501,W293
+IGNORE=E123,E501,W293,E225
 
 FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '\.py$')
 
