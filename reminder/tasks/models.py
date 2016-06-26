@@ -64,6 +64,7 @@ class Reminders(models.Model):
         if reminder_time < arrow.utcnow():
             raise ValidationError('You cannot schedule a reminder for the past. Please check your time and time_zone')
             
+
             
     def schedule_reminder(self):
         """Schedules a Celery task to send a reminder """

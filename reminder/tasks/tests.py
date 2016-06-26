@@ -15,8 +15,7 @@ if six.PY3:
     from unittest.mock import patch
 else:
     from mock import patch
-    
-    
+        
 
 class RemindersTest(TestCase):
 

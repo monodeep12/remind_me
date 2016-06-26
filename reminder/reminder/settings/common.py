@@ -32,7 +32,7 @@ BROKER_URL = 'redis://localhost:6379/0'
 BROKER_POOL_LIMIT = 8
 
 # Reminder time: how early text messages are sent in advance of reminder time
-REMINDER_TIME = 30 # seconds
+REMINDER_TIME = 30  # seconds
 
 
 # Application definition
@@ -107,7 +107,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/

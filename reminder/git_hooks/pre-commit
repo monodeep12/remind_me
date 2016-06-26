@@ -1,0 +1,14 @@
+#!/bin/bash
+
+cd reminder/git_hooks/pre-commit-hooks
+
+for hook in *;
+do
+  echo "executing $hook"
+  bash "$(pwd)/$hook"
+
+  if [ $? -ne 0 ]; then
+  	echo "$hook failed, please fix the issues or use -n flag to force commit"
+    exit 1
+  fi
+done

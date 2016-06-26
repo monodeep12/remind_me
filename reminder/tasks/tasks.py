@@ -8,6 +8,7 @@ import datetime
 from .models import Reminders
 
 
+
 @shared_task
 def send_reminder(reminder_id):
     # Get our reminder from the database
