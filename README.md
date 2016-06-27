@@ -18,6 +18,12 @@
 - (the above command creates a sym link to your pre_commit hook)
 - if you wish to bypass the commit hook then use `git commit -n`
 
+**Setup Hooks :**
+
+- From the project root execute : `./bootstrap_git_hooks.sh`
+- (the above command creates a sym link to your pre_commit hook)
+- if you wish to bypass the commit hook then use `git commit -n`
+
 **API Documentation :**
 
 - https://monodeep12.github.io/remind_me/
