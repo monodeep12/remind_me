@@ -15,20 +15,21 @@ if six.PY3:
     from unittest.mock import patch
 else:
     from mock import patch
-    
-    
+        
 
 class RemindersTest(TestCase):
 
     def test_str(self):
         # Arrange
-        t = datetime.datetime.now() + datetime.timedelta(minutes = 10)
-        reminder = mommy.make(Reminders, id="2662c2d9f3414589b63d7cee423dd37d", 
-        email="mono@amagi.com", 
-        phone_number="+919945055794",
-        date=datetime.datetime.now().date(),
-        time=t.time(),
-        message="Test message")
+        t=datetime.datetime.now() + datetime.timedelta(minutes=10)
+        reminder = mommy.make(
+            Reminders,
+            id="2662c2d9f3414589b63d7cee423dd37d",
+            email="mono@amagi.com",
+            phone_number="+919945055794",
+            date=datetime.datetime.now().date(),
+            time=t.time(),
+            message="Test message")
 
         # Assert
         self.assertEqual(str(reminder), "2662c2d9f3414589b63d7cee423dd37d")
@@ -36,8 +37,8 @@ class RemindersTest(TestCase):
     # def test_clean_invalid_time(self):
     #     # Arrange
     #     t = datetime.datetime.now() - datetime.timedelta(minutes = 10)
-    #     reminder = mommy.make(Reminders, 
-    #     email="mono@amagi.com", 
+    #     reminder = mommy.make(Reminders,
+    #     email="mono@amagi.com",
     #     phone_number="+919945055794",
     #     date=datetime.datetime.now().date(),
     #     time=t.time(),
@@ -49,13 +50,14 @@ class RemindersTest(TestCase):
 
     def test_clean_valid_reminder(self):
         # Arrange
-        t = datetime.datetime.now() + datetime.timedelta(minutes = 10)
-        reminder = mommy.make(Reminders, 
-        email="mono@amagi.com", 
-        phone_number="+919945055794",
-        date=datetime.datetime.now().date(),
-        time=t.time(),
-        message="Test message")
+        t=datetime.datetime.now() + datetime.timedelta(minutes=10)
+        reminder = mommy.make(
+            Reminders,
+            email="mono@amagi.com",
+            phone_number="+919945055794",
+            date=datetime.datetime.now().date(),
+            time=t.time(),
+            message="Test message")
         
         # Assert
         try:
@@ -65,13 +67,14 @@ class RemindersTest(TestCase):
 
     def test_schedule_reminder(self):
         # Arrange
-        t = datetime.datetime.now() + datetime.timedelta(minutes = 10)
-        reminder = mommy.make(Reminders, 
-        email="mono@amagi.com", 
-        phone_number="+919945055794",
-        date=datetime.datetime.now().date(),
-        time=t.time(),
-        message="Test message")
+        t=datetime.datetime.now() + datetime.timedelta(minutes=10)
+        reminder = mommy.make(
+            Reminders,
+            email="mono@amagi.com",
+            phone_number="+919945055794",
+            date=datetime.datetime.now().date(),
+            time=t.time(),
+            message="Test message")
 
         # Act
         with patch.object(send_reminder, 'apply_async') as mock:
@@ -83,13 +86,14 @@ class RemindersTest(TestCase):
     def test_save_initial_creation(self):
         # Act
         with patch.object(Reminders, 'schedule_reminder', return_value=123) as mock:
-            t = datetime.datetime.now() + datetime.timedelta(minutes = 10)
-            reminder = mommy.make(Reminders, 
-            email="mono@amagi.com", 
-            phone_number="+919945055794",
-            date=datetime.datetime.now().date(),
-            time=t.time(),
-            message="Test message")
+            t=datetime.datetime.now() + datetime.timedelta(minutes=10)
+            reminder = mommy.make(
+                Reminders,
+                email="mono@amagi.com",
+                phone_number="+919945055794",
+                date=datetime.datetime.now().date(),
+                time=t.time(),
+                message="Test message")
 
         # Assert
         self.assertTrue(mock.called)
