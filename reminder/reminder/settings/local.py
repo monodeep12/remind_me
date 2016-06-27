@@ -3,7 +3,7 @@ Local settings
 - Run in Debug mode
 '''
 
-from .common import * 
+from .common import *
 
 # Use DEBUG for local development
 DEBUG = True

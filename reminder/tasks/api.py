@@ -15,7 +15,6 @@ class RemindersResource(ModelResource):
         always_return_data = True
         
 
-
 def validate_mobile(value):
     rule = re.compile(r'^\+?1?\d{9,15}$')
     if rule.search(value):

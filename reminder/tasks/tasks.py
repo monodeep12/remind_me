@@ -27,4 +27,3 @@ def send_reminder(reminder_id):
     
     if not reminder.phone_number == "":
         print("SMS:", body)
-    
