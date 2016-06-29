@@ -82,7 +82,7 @@ class Reminders(models.Model):
                 self.date, self.time), self.time_zone.zone)
         reminder_time = reminder_time.replace(seconds=-settings.REMINDER_TIME)
         # Schedule the Celery task
-        from .tasks import send_reminder
+        from .event_reminder_app import send_reminder
         result = send_reminder.apply_async((self.id,), eta=reminder_time)
 
         return result.id

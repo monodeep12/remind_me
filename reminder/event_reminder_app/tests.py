@@ -3,7 +3,7 @@ from django.test import TestCase
 from model_mommy import mommy
 
 from .models import Reminders
-from .tasks import send_reminder
+from .event_reminder_app import send_reminder
 
 import arrow
 import datetime
