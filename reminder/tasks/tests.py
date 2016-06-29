@@ -29,7 +29,9 @@ class RemindersTest(TestCase):
             message="Test message")
             
     def test_str(self):
-        self.assertEqual(str(self.reminder), "2662c2d9f3414589b63d7cee423dd37d")
+        self.assertEqual(
+            str(self.reminder), 
+            "2662c2d9f3414589b63d7cee423dd37d")
 
     def test_clean_valid_reminder(self):
         try:
@@ -44,7 +46,11 @@ class RemindersTest(TestCase):
         self.assertTrue(mock.called)
 
     def test_save_initial_creation(self):
-        with patch.object(Reminders, 'schedule_reminder', return_value=123) as mock:
+        with patch.object(
+            Reminders, 
+            'schedule_reminder', 
+            return_value=123) as mock:
+            
             t=datetime.datetime.now() + datetime.timedelta(minutes=10)
             reminder = mommy.make(
                 Reminders,

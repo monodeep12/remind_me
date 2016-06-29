@@ -13,7 +13,7 @@ class RemindersResource(ModelResource):
         allowed_methods = ['post']
         authorization = Authorization()
         always_return_data = True
-        
+
 
 def validate_mobile(value):
     rule = re.compile(r'^\+?1?\d{9,15}$')
