@@ -39,39 +39,6 @@ class Reminders(models.Model):
     
     def __str__(self):
         return self.id
-    
-    def clean(self):
-        """Checks that reminders are not set in the past"""
-        if (self.email == '' and self.phone_number == ''):
-            raise ValidationError('Email and phone both cannot be empty')
-        
-        if not self.email == '':
-            if not is_email(self.email, check_dns=True):
-                raise ValidationError('Invalid email')
-       
-        if not self.phone_number == '':
-            if not self.validate_mobile():
-                raise ValidationError('Invalid phone number')
-        
-        if self.date == '':
-            raise ValidationError('Date cannot be empty')
-            
-        if self.time == '':
-            raise ValidationError('Time cannot be empty')
-            
-        if len(str(self.time).split(":")) == 1:
-            raise ValidationError('Time should be of the format "HH:MM:SS"')
-            
-        if self.message == "":
-            raise ValidationError('Message cannot be empty')
-        
-        reminder_time = arrow.get(
-            datetime.datetime.combine(
-                self.date, self.time), self.time_zone.zone)
-
-        if reminder_time < arrow.utcnow():
-            raise ValidationError(
-                'You cannot schedule a reminder for the past.')
                     
     def schedule_reminder(self):
         """Schedules a Celery task to send a reminder """
