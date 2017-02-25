@@ -19,8 +19,15 @@ import datetime
 class Reminders(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     email = models.EmailField(null=True)
-    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+919945055726'. Up to 15 digits allowed.")
-    phone_number = models.CharField(validators=[phone_regex], blank=True, max_length=15, null=True)
+    phone_regex = RegexValidator(
+        regex=r'^\+?1?\d{9,15}$',
+        message="Phone number must be entered in the format: '+919945055726'."
+                "Up to 15 digits allowed.")
+    phone_number = models.CharField(
+        validators=[phone_regex],
+        blank=True,
+        max_length=15,
+        null=True)
     date = models.DateField(null=False)
     time = models.TimeField(null=False)
     message = models.CharField(max_length=250, blank=False, null=False)
@@ -32,42 +39,14 @@ class Reminders(models.Model):
     
     def __str__(self):
         return self.id
-    
-    def clean(self):
-        """Checks that reminders are not set in the past"""
-        if (self.email == '' and self.phone_number == ''):
-            raise ValidationError('Email and phone both cannot be empty')
-        
-        if not self.email == '':
-            if not is_email(self.email, check_dns=True):
-                raise ValidationError('Invalid email')
-       
-        if not self.phone_number == '':
-            if not self.validate_mobile():
-                raise ValidationError('Invalid phone number')
-        
-        if self.date == '':
-            raise ValidationError('Date cannot be empty')
-            
-        if self.time == '':
-            raise ValidationError('Time cannot be empty')
-            
-        if len(str(self.time).split(":")) == 1:
-            raise ValidationError('Time should be of the format "HH:MM:SS"')
-            
-        if self.message == "":
-            raise ValidationError('Message cannot be empty')
-        
-        reminder_time = arrow.get(datetime.datetime.combine(self.date, self.time), self.time_zone.zone)
-
-        if reminder_time < arrow.utcnow():
-            raise ValidationError('You cannot schedule a reminder for the past. Please check your time and time_zone')
                     
     def schedule_reminder(self):
         """Schedules a Celery task to send a reminder """
 
         # Calculate the correct time to send this reminder
-        reminder_time = arrow.get(datetime.datetime.combine(self.date, self.time), self.time_zone.zone)
+        reminder_time = arrow.get(
+            datetime.datetime.combine(
+                self.date, self.time), self.time_zone.zone)
         reminder_time = reminder_time.replace(seconds=-settings.REMINDER_TIME)
         # Schedule the Celery task
         from .tasks import send_reminder
